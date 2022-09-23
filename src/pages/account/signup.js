@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import axios from 'axios';
 
 export default function  signUp(){
   const [fullName,setFullName] = useState('ffff');
@@ -10,27 +11,16 @@ export default function  signUp(){
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    const options = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+   const response = await axios.post('/api/auth/signup',{
+    fullName,
+    username,
+    email,
+    password,
+    confirmPassword
+   });
 
-      },
-      body: JSON.stringify({
-        fullName: fullName,
-        username: username,
-        email,
-        password,
-        confirmPassword
-     })
-     };
 
-    const response = await fetch('/api/auth/signup',options);
-
-    const data = await response.json();
-
-    console.log(data);
+    console.log(response);
   };
 
   const handleChange = event => {

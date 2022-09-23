@@ -9,9 +9,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "flowbite": "^1.5.3",
     "mongoose": "^6.6.1",
@@ -21,6 +23,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "autoprefixer": "^10.4.12",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
